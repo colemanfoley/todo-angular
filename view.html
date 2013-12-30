@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app='todo-angular'>
+<head>
+	<title>To-dos</title>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js'></script>
+	<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+	<script src='https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js'></script>
+	<script src='app.js'></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="MainController">
+	<header><h1>My to-dos</h1></header>
+	<input type="text", ng-model="todo", ng-keydown="addTodo($event)", placeholder="What to do?">
+	<ul id="todos">
+		<li ng-repeat="todo in todos">
+			<input type="checkbox", ng-model="todo.done", ng-click="save()">
+			<span>{{todo.content}}</span>
+			<pre>{{todo.done}}</pre>
+		</li>
+	</ul>
+</body>
+</html>
